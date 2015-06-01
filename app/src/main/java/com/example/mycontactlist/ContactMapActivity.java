@@ -46,6 +46,7 @@ public class ContactMapActivity extends FragmentActivity {
         initMapTypeButton();
         initListButton();
         initMapButton();
+        initGPSButton();
         initSettingsButton();
 
         googleMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
@@ -268,6 +269,17 @@ public class ContactMapActivity extends FragmentActivity {
         list.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(ContactMapActivity.this, ContactSettingsActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void initGPSButton() {
+        ImageButton list = (ImageButton) findViewById(R.id.imageButtonGPS);
+        list.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(ContactMapActivity.this, ContactGPSActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }

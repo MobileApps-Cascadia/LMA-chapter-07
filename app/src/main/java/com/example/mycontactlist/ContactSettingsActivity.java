@@ -23,6 +23,7 @@ public class ContactSettingsActivity extends Activity {
 		initSortOrderClick();
 		initListButton();
 		initMapButton();
+        initGPSButton();
 		initSettingsButton();
 	}
 
@@ -126,5 +127,14 @@ public class ContactSettingsActivity extends Activity {
             }
         });
 	}
-	
+    private void initGPSButton() {
+        ImageButton list = (ImageButton) findViewById(R.id.imageButtonGPS);
+        list.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(ContactSettingsActivity.this, ContactGPSActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
+        });
+    }
 }
